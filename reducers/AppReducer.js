@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 
+import UserProfileReducer from './UserProfileReducer';
+
 const initialState = {
 
 };
 
-const appReducer = (state = initialState, action) => {
+const AppReducer = (state = initialState, action) => {
   switch(action.type) {
     default: {
       return state;
@@ -13,5 +15,6 @@ const appReducer = (state = initialState, action) => {
 }
 
 export default combineReducers({
-  app: appReducer
+  app: AppReducer,
+  profile: UserProfileReducer
 });

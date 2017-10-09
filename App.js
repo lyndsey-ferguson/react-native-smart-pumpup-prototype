@@ -4,9 +4,9 @@ import React, {
 import {
   AppState,
   AsyncStorage,
+  Image,
   StatusBar,
   StyleSheet,
-  Text,
   View
 } from 'react-native';
 import {
@@ -14,10 +14,14 @@ import {
   createStore
 } from 'redux'
 import { createLogger } from 'redux-logger'
-import { Provider } from 'react-redux';
+import {
+  Provider,
+  connect
+} from 'react-redux';
 import thunk from 'redux-thunk';
 
-import appReducer from './reducers/AppReducer'
+import RootView from './components/RootView';
+import appReducer from './reducers/AppReducer';
 
 const logger = createLogger();
 const createStoreWithMiddleware = applyMiddleware(thunk, logger)(createStore);
@@ -44,7 +48,7 @@ export default class App extends React.Component {
     AsyncStorage.getItem('SmartComponentsApp').then((value)=>{
       if(value && value.length){
         let initialStore = JSON.parse(value);
-        self.setState({store: createStore(rootReducer, initialStore, applyMiddleware(thunk, logger))});
+        self.setState({store: createStore(appReducer, initialStore, applyMiddleware(thunk, logger))});
       }else{
         self.setState({store: store});
       }
@@ -66,19 +70,18 @@ export default class App extends React.Component {
       return (
         <View style={styles.container}>
           <StatusBar hidden={true}/>
-          <Text>Open up App.js to start working on your app!</Text>
-          <Text>Changes you make will automatically reload.</Text>
-          <Text>Shake your phone to open the developer menu.</Text>
+          <Image style={{ width: 200, height: 200 }}
+            source={require('./res/loading.gif')}
+          />
         </View>
       );
     }
     return (
-      <Provider store={this.state.store}>
-        <View>
-          <StatusBar hidden={true}/>
-          <Text>Loaded</Text>
-        </View>
-      </Provider>
+      <View style={styles.container}>
+        <Provider store={this.state.store}>
+          <RootView />
+        </Provider>
+      </View>
     )
   }
 }
@@ -86,8 +89,6 @@ export default class App extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: '#00f'
   },
 });
