@@ -21,8 +21,12 @@ import UserProfilePane from './UserProfilePane';
 import ImagePreviewsPane from './ImagePreviewsPane';
 import ImageGrid from './ImageGrid';
 import * as ImagePreviewsPaneActionCreators from '../actions/ImagePreviewsPaneActionCreators';
+import * as UserProfileActionCreators from '../actions/UserProfileActionCreators';
 
 class RootView extends React.Component {
+  componentWillMount() {
+    this.props.BoundUserProfileActionCreators.LoadUserProfile();
+  }
   render() {
     return (
       <View style={{backgroundColor: '#0000ff', flex: 1}}>
@@ -49,6 +53,9 @@ const mapDispatchToProps = (dispatch) => {
   const boundActionCreators = Object.assign({}, {
     BoundImagePreviewsPaneActionCreators: bindActionCreators({
       ...ImagePreviewsPaneActionCreators
+    }, dispatch),
+    BoundUserProfileActionCreators: bindActionCreators({
+      ...UserProfileActionCreators
     }, dispatch)
   });
 

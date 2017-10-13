@@ -23,8 +23,12 @@ const imagePreviewPaneWidth = windowWidth - 40;
 
 export default class UserProfilePane extends React.Component {
   render() {
-    const { isLoading, photo, name, bio } = this.props;
-    const imageSource = isLoading ? require('../res/no_avatar.png') : photo;
+    const { isLoading, avatarUri, name, bio } = this.props;
+    const imageSource = avatarUri ? {
+                                  uri: avatarUri
+                                } :
+                                require('../res/no_avatar.png');
+
     return (
       <View style={{backgroundColor: '#f00'}}>
         <View style={styles.container}>

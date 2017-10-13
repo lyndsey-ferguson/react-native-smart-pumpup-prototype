@@ -44,20 +44,12 @@ export default class ImagePreviewsPane extends React.Component {
 
   render() {
     const images = [
-      {
-        key: 'me 1',
-        source: require('../res/me.png')
-      },
-      {
-        key: 'me 2',
-        source: require('../res/me.png')
-      }
     ];
     const { currentImageIndex } = this.props;
     console.log('#### currentImageIndex is ' + currentImageIndex);
     return (
       <View>
-        <FlatList ref={component => {this.flatList = component; component && component.scrollToIndex({index: currentImageIndex});}}
+        <FlatList ref={component => {this.flatList = component; component && currentImageIndex < images.length && component.scrollToIndex({index: currentImageIndex});}}
                   onMomentumScrollEnd={(event) => this.handleScrollEnd.call(this, event)}
                   data={images}
                   style={styles.imagePreviews}
