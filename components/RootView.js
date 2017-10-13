@@ -12,6 +12,8 @@ import { bindActionCreators } from 'redux'
 
 import UserProfilePane from './UserProfilePane';
 import ImagePreviewsPane from './ImagePreviewsPane';
+import ImageGrid from './ImageGrid';
+import * as ImagePreviewsPaneActionCreators from '../actions/ImagePreviewsPaneActionCreators';
 
 class RootView extends React.Component {
   render() {
@@ -20,6 +22,7 @@ class RootView extends React.Component {
         <StatusBar hidden={true}/>
         <UserProfilePane {...this.props.profile}/>
         <ImagePreviewsPane />
+        <ImageGrid />
       </View>
     );
   }

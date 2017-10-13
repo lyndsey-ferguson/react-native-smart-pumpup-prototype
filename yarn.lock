@@ -4490,6 +4490,12 @@ react-native-gesture-handler@1.0.0-alpha.22:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-grid-component@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/react-native-grid-component/-/react-native-grid-component-1.0.7.tgz#1a1d01eb1ea183c999541ad3415b55237c666d6a"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-maps@0.15.3:
   version "0.15.3"
   resolved "https://registry.yarnpkg.com/react-native-maps/-/react-native-maps-0.15.3.tgz#5d9e0a8e30ecc51dc755b7a3b9d6b6ed5e2dd08c"
