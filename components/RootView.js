@@ -1,11 +1,18 @@
-'use strict'
+/**
+ RootView.js
+ Smart Components
+
+ React Native app created by Lyndsey on 10/7/17.
+ Copyright © 2017 Lyndsey Ferguson Apps. All rights reserved.
+*/
 
 import React, {
   Component
 } from 'react';
 import {
   StatusBar,
-  View
+  View,
+  StyleSheet
 } from 'react-native';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'

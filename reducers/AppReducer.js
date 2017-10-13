@@ -1,3 +1,10 @@
+/**
+ AppReducer.js
+ Smart Components
+
+ React Native app created by Lyndsey on 10/7/17.
+ Copyright © 2017 Lyndsey Ferguson Apps. All rights reserved.
+*/
 import { combineReducers } from 'redux';
 
 import UserProfileReducer from './UserProfileReducer';
