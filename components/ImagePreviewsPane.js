@@ -19,32 +19,29 @@ import {
 import Bounceable from 'react-native-bounceable';
 
 const { width: windowWidth } = Dimensions.get('window');
-const imagePreviewPaneWidth = windowWidth - 40;
+const imagePreviewsPaneWidth = windowWidth - 40;
 
 export default class ImagePreviewsPane extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      currentImagePreviewIndex: 0
-    }
-  }
   renderImagePreview({item}) {
     return (
-      <Image style={{width: imagePreviewPaneWidth, height: imagePreviewPaneWidth}} source={item.source} key={item.key}/>
-    )
-  }
-  scrollToImagePreview(index) {
-    this.flatList.scrollToIndex({index});
+      <Image style={{width: imagePreviewsPaneWidth, height: imagePreviewsPaneWidth}} source={item.source} key={item.key}/>
+    );
   }
   handleScrollEnd(event) {
     const horizontalOffset = event.nativeEvent.contentOffset.x;
-    const imagePreviewIndex = horizontalOffset ? Math.round(horizontalOffset / imagePreviewPaneWidth) : 0;
-    if (this.state.currentImagePreviewIndex != imagePreviewIndex) {
-      this.setState({
-        currentImagePreviewIndex: imagePreviewIndex
-      });
+    const imagePreviewIndex = horizontalOffset ? Math.round(horizontalOffset / imagePreviewsPaneWidth) : 0;
+    if (this.props.currentImageIndex != imagePreviewIndex) {
+      this.props.ChangeCurrent(imagePreviewIndex);
     }
   }
+  getItemLayout(data, index) {
+    return {
+      length: imagePreviewsPaneWidth,
+      offset: imagePreviewsPaneWidth * index,
+      index
+    };
+  }
+
   render() {
     const images = [
       {
@@ -56,30 +53,33 @@ export default class ImagePreviewsPane extends React.Component {
         source: require('../res/me.png')
       }
     ];
+    const { currentImageIndex } = this.props;
+    console.log('#### currentImageIndex is ' + currentImageIndex);
     return (
       <View>
-        <FlatList ref={component => this.flatList = component}
+        <FlatList ref={component => {this.flatList = component; component && component.scrollToIndex({index: currentImageIndex});}}
                   onMomentumScrollEnd={(event) => this.handleScrollEnd.call(this, event)}
                   data={images}
                   style={styles.imagePreviews}
                   horizontal={true}
                   decelerationRate={0}
+                  getItemLayout={this.getItemLayout.bind(this)}
                   snapToAlignment={'center'}
-                  snapToInterval={imagePreviewPaneWidth}
+                  snapToInterval={imagePreviewsPaneWidth}
                   renderItem={this.renderImagePreview.bind(this)} />
         <View
           style={{ flexDirection: 'row', justifyContent: 'center' }} // this will layout our dots horizontally (row) instead of vertically (column)
           >
           {
-            images.map((_, i) => { // the _ just means we won't use that parameter
+            images.map((_, imageIndex) => {
               return (
-                <Bounceable key={i} // we will use i for the key because no two (or more) elements in an array will have the same index
-                            onPress={() => this.scrollToImagePreview.call(this, i)}
+                <Bounceable key={imageIndex}
+                            onPress={() => this.props.ChangeCurrent(imageIndex)}
                             level={1.1}
                 >
                   <View style={[
                     styles.imagePreviewDot,
-                    this.state.currentImagePreviewIndex == i && styles.imagePreviewActiveDot
+                    currentImageIndex == imageIndex && styles.imagePreviewActiveDot
                   ]} />
                 </Bounceable>
               );
@@ -92,8 +92,8 @@ export default class ImagePreviewsPane extends React.Component {
 
 const styles = StyleSheet.create({
   imagePreviews: {
-    width: imagePreviewPaneWidth,
-    height: imagePreviewPaneWidth,
+    width: imagePreviewsPaneWidth,
+    height: imagePreviewsPaneWidth,
     marginTop: 20,
     marginLeft: 20
   },

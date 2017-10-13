@@ -28,7 +28,9 @@ class RootView extends React.Component {
       <View style={{backgroundColor: '#0000ff', flex: 1}}>
         <StatusBar hidden={true}/>
         <UserProfilePane {...this.props.profile}/>
-        <ImagePreviewsPane />
+        <ImagePreviewsPane
+          {...this.props.imagePreviews}
+          {...this.props.BoundImagePreviewsPaneActionCreators} />
         <ImageGrid />
       </View>
     );
@@ -38,12 +40,19 @@ class RootView extends React.Component {
 const mapStateToProps = (state) => {
   return {
     app: state.app,
-    profile: state.profile
+    profile: state.profile,
+    imagePreviews: state.imagePreviews
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return bindActionCreators({}, dispatch);
+  const boundActionCreators = Object.assign({}, {
+    BoundImagePreviewsPaneActionCreators: bindActionCreators({
+      ...ImagePreviewsPaneActionCreators
+    }, dispatch)
+  });
+
+  return boundActionCreators;
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(RootView);
