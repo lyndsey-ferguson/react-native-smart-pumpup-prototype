@@ -17,7 +17,9 @@ import {
   View
 } from 'react-native';
 import Bounceable from 'react-native-bounceable';
-import Hyperlink from 'react-native-hyperlink'
+import Hyperlink from 'react-native-hyperlink';
+import ReadMore from '@expo/react-native-read-more-text';
+
 import {
   TWITTER_URL_PREFIX
 } from '../Constants';
@@ -26,6 +28,21 @@ const { width: windowWidth } = Dimensions.get('window');
 const imagePreviewPaneWidth = windowWidth - 40;
 
 export default class UserProfilePane extends React.Component {
+    _renderTruncatedFooter = (handlePress) => {
+    return (
+      <Text onPress={handlePress} style={styles.readMoreLess}>
+        Read more
+      </Text>
+    );
+  }
+
+  _renderRevealedFooter = (handlePress) => {
+    return (
+      <Text onPress={handlePress} style={styles.readMoreLess}>
+        Show less
+      </Text>
+    );
+  }
   render() {
     const { isLoading, avatarUri, name, bio } = this.props;
     const imageSource = avatarUri ? {
@@ -52,10 +69,14 @@ export default class UserProfilePane extends React.Component {
                 }
               }
             >
-              <Text numberOfLines={3}
-                    ellipsizeMode={'tail'} >
-                {bio}
-              </Text>
+              <ReadMore numberOfLines={3}
+                        renderTruncatedFooter={this._renderTruncatedFooter}
+                        renderRevealedFooter={this._renderRevealedFooter}
+                        >
+                <Text>
+                  {bio}
+                </Text>
+              </ReadMore>
             </Hyperlink>
           </View>
         </View>
@@ -69,7 +90,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     backgroundColor: '#fff',
     borderBottomWidth: 1.0,
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
     borderColor: '#444',
     paddingBottom: 5,
     paddingTop: 5
@@ -85,5 +106,8 @@ const styles = StyleSheet.create({
   name: {
     fontWeight: 'bold',
     fontSize: 20
+  },
+  readMoreLess: {
+    color: 'blue'
   }
 });
