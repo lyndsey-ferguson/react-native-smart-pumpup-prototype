@@ -11,9 +11,9 @@ import {
   ACTION_IMAGES_CHANGE_CURRENT
 } from './ImagePreviewsPaneActions';
 
-const _ChangeList = (imageList) => ({
+const _ChangeList = (imagesList) => ({
   type: ACTION_IMAGES_CHANGE_LIST,
-  imageList
+  imagesList
 });
 
 export const ChangeCurrent = (currentImageIndex) => ({
@@ -40,10 +40,10 @@ export function LoadImagePreviews() {
       }
       throw new Error(`Network Error ${response.status}): ${response.statusText}`);
     }).then(function(json) {
-      const imageList = json.result.posts.map(function({thumbnail}, index) {
+      const imagesList = json.result.posts.map(function({thumbnail}, index) {
         return { uri: thumbnail, key: `image_preview_${index}`};
       });
-      dispatch(_ChangeList(imageList));
+      dispatch(_ChangeList(imagesList));
     });
   }
 }

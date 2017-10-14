@@ -1,0 +1,593 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with 6 images and a currentImageIndex of 0 1`] = `
+<View>
+  <RCTScrollView
+    data={
+      Array [
+        Object {
+          "key": "1",
+          "uri": "https://www.example.com/image1.png",
+        },
+        Object {
+          "key": "2",
+          "uri": "https://www.example.com/image2.png",
+        },
+        Object {
+          "key": "3",
+          "uri": "https://www.example.com/image3.png",
+        },
+        Object {
+          "key": "4",
+          "uri": "https://www.example.com/image4.png",
+        },
+        Object {
+          "key": "5",
+          "uri": "https://www.example.com/image5.png",
+        },
+        Object {
+          "key": "6",
+          "uri": "https://www.example.com/image6.png",
+        },
+      ]
+    }
+    decelerationRate={0}
+    disableVirtualization={false}
+    extraData={
+      Array [
+        Object {
+          "key": "1",
+          "uri": "https://www.example.com/image1.png",
+        },
+        Object {
+          "key": "2",
+          "uri": "https://www.example.com/image2.png",
+        },
+        Object {
+          "key": "3",
+          "uri": "https://www.example.com/image3.png",
+        },
+        Object {
+          "key": "4",
+          "uri": "https://www.example.com/image4.png",
+        },
+        Object {
+          "key": "5",
+          "uri": "https://www.example.com/image5.png",
+        },
+        Object {
+          "key": "6",
+          "uri": "https://www.example.com/image6.png",
+        },
+      ]
+    }
+    getItem={[Function]}
+    getItemCount={[Function]}
+    getItemLayout={[Function]}
+    horizontal={true}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    onViewableItemsChanged={undefined}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    snapToAlignment="center"
+    snapToInterval={710}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "height": 710,
+        "marginLeft": 20,
+        "marginTop": 20,
+        "width": 710,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  >
+    <View>
+      <View
+        onLayout={undefined}
+        style={null}
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "https://www.example.com/image1.png",
+            }
+          }
+          style={
+            Object {
+              "height": 710,
+              "width": 710,
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={undefined}
+        style={null}
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "https://www.example.com/image2.png",
+            }
+          }
+          style={
+            Object {
+              "height": 710,
+              "width": 710,
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={undefined}
+        style={null}
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "https://www.example.com/image3.png",
+            }
+          }
+          style={
+            Object {
+              "height": 710,
+              "width": 710,
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={undefined}
+        style={null}
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "https://www.example.com/image4.png",
+            }
+          }
+          style={
+            Object {
+              "height": 710,
+              "width": 710,
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={undefined}
+        style={null}
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "https://www.example.com/image5.png",
+            }
+          }
+          style={
+            Object {
+              "height": 710,
+              "width": 710,
+            }
+          }
+        />
+      </View>
+      <View
+        onLayout={undefined}
+        style={null}
+      >
+        <Image
+          resizeMode="contain"
+          source={
+            Object {
+              "uri": "https://www.example.com/image6.png",
+            }
+          }
+          style={
+            Object {
+              "height": 710,
+              "width": 710,
+            }
+          }
+        />
+      </View>
+    </View>
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }
+  >
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        onMoveShouldSetResponder={[Function]}
+        onMoveShouldSetResponderCapture={[Function]}
+        onResponderEnd={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderReject={[Function]}
+        onResponderRelease={[Function]}
+        onResponderStart={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#595959",
+                  "borderRadius": 5,
+                  "height": 10,
+                  "margin": 8,
+                  "width": 10,
+                },
+                Object {
+                  "backgroundColor": "#FFFF00",
+                },
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        onMoveShouldSetResponder={[Function]}
+        onMoveShouldSetResponderCapture={[Function]}
+        onResponderEnd={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderReject={[Function]}
+        onResponderRelease={[Function]}
+        onResponderStart={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#595959",
+                  "borderRadius": 5,
+                  "height": 10,
+                  "margin": 8,
+                  "width": 10,
+                },
+                false,
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        onMoveShouldSetResponder={[Function]}
+        onMoveShouldSetResponderCapture={[Function]}
+        onResponderEnd={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderReject={[Function]}
+        onResponderRelease={[Function]}
+        onResponderStart={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#595959",
+                  "borderRadius": 5,
+                  "height": 10,
+                  "margin": 8,
+                  "width": 10,
+                },
+                false,
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        onMoveShouldSetResponder={[Function]}
+        onMoveShouldSetResponderCapture={[Function]}
+        onResponderEnd={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderReject={[Function]}
+        onResponderRelease={[Function]}
+        onResponderStart={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#595959",
+                  "borderRadius": 5,
+                  "height": 10,
+                  "margin": 8,
+                  "width": 10,
+                },
+                false,
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        onMoveShouldSetResponder={[Function]}
+        onMoveShouldSetResponderCapture={[Function]}
+        onResponderEnd={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderReject={[Function]}
+        onResponderRelease={[Function]}
+        onResponderStart={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#595959",
+                  "borderRadius": 5,
+                  "height": 10,
+                  "margin": 8,
+                  "width": 10,
+                },
+                false,
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+    <View
+      collapsable={undefined}
+      style={
+        Object {
+          "transform": Array [
+            Object {
+              "scale": 1,
+            },
+          ],
+        }
+      }
+    >
+      <View
+        onMoveShouldSetResponder={[Function]}
+        onMoveShouldSetResponderCapture={[Function]}
+        onResponderEnd={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderReject={[Function]}
+        onResponderRelease={[Function]}
+        onResponderStart={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        onStartShouldSetResponderCapture={[Function]}
+      >
+        <View>
+          <View
+            style={
+              Array [
+                Object {
+                  "backgroundColor": "#595959",
+                  "borderRadius": 5,
+                  "height": 10,
+                  "margin": 8,
+                  "width": 10,
+                },
+                false,
+              ]
+            }
+          />
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders correctly without any images and a currentImageIndex of 0 1`] = `
+<View>
+  <RCTScrollView
+    data={Array []}
+    decelerationRate={0}
+    disableVirtualization={false}
+    extraData={Array []}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    getItemLayout={[Function]}
+    horizontal={true}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    onViewableItemsChanged={undefined}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    snapToAlignment="center"
+    snapToInterval={710}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "height": 710,
+        "marginLeft": 20,
+        "marginTop": 20,
+        "width": 710,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  >
+    <View />
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }
+  />
+</View>
+`;
+
+exports[`renders correctly without any images and an invalid currentImageIndex 1`] = `
+<View>
+  <RCTScrollView
+    data={Array []}
+    decelerationRate={0}
+    disableVirtualization={false}
+    extraData={Array []}
+    getItem={[Function]}
+    getItemCount={[Function]}
+    getItemLayout={[Function]}
+    horizontal={true}
+    initialNumToRender={10}
+    keyExtractor={[Function]}
+    maxToRenderPerBatch={10}
+    numColumns={1}
+    onContentSizeChange={[Function]}
+    onEndReachedThreshold={2}
+    onLayout={[Function]}
+    onMomentumScrollEnd={[Function]}
+    onScroll={[Function]}
+    onScrollBeginDrag={[Function]}
+    onScrollEndDrag={[Function]}
+    onViewableItemsChanged={undefined}
+    renderItem={[Function]}
+    scrollEventThrottle={50}
+    snapToAlignment="center"
+    snapToInterval={710}
+    stickyHeaderIndices={Array []}
+    style={
+      Object {
+        "height": 710,
+        "marginLeft": 20,
+        "marginTop": 20,
+        "width": 710,
+      }
+    }
+    updateCellsBatchingPeriod={50}
+    windowSize={21}
+  >
+    <View />
+  </RCTScrollView>
+  <View
+    style={
+      Object {
+        "flexDirection": "row",
+        "justifyContent": "center",
+      }
+    }
+  />
+</View>
+`;

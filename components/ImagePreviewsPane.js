@@ -46,8 +46,8 @@ export default class ImagePreviewsPane extends React.Component {
   }
 
   render() {
-    const { currentImageIndex, imageList } = this.props;
-    const shouldScroll = currentImageIndex < imageList.length && currentImageIndex > 0;
+    const { currentImageIndex, imagesList } = this.props;
+    const shouldScroll = currentImageIndex < imagesList.length && currentImageIndex > 0;
     return (
       <View>
         <FlatList ref={component => {
@@ -57,8 +57,8 @@ export default class ImagePreviewsPane extends React.Component {
                     }}
                   }
                   onMomentumScrollEnd={(event) => this.handleScrollEnd.call(this, event)}
-                  extraData={imageList}
-                  data={imageList}
+                  extraData={imagesList}
+                  data={imagesList}
                   style={styles.imagePreviews}
                   horizontal={true}
                   decelerationRate={0}
@@ -70,7 +70,7 @@ export default class ImagePreviewsPane extends React.Component {
           style={{ flexDirection: 'row', justifyContent: 'center' }} // this will layout our dots horizontally (row) instead of vertically (column)
           >
           {
-            imageList.map((_, imageIndex) => {
+            imagesList.map((_, imageIndex) => {
               return (
                 <Bounceable key={imageIndex}
                             onPress={() => this.props.ChangeCurrent(imageIndex)}
