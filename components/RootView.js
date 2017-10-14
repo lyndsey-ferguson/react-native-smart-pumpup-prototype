@@ -22,11 +22,13 @@ import ImagePreviewsPane from './ImagePreviewsPane';
 import ImageGrid from './ImageGrid';
 import * as ImagePreviewsPaneActionCreators from '../actions/ImagePreviewsPaneActionCreators';
 import * as UserProfileActionCreators from '../actions/UserProfileActionCreators';
+import * as ImageGridActionCreators from '../actions/ImageGridActionCreators';
 
 class RootView extends React.Component {
   componentWillMount() {
     this.props.BoundUserProfileActionCreators.LoadUserProfile();
     this.props.BoundImagePreviewsPaneActionCreators.LoadImagePreviews();
+    this.props.BoundImageGridActionCreators.LoadGridImages();
   }
   render() {
     return (
@@ -36,7 +38,8 @@ class RootView extends React.Component {
         <ImagePreviewsPane
           {...this.props.imagePreviews}
           {...this.props.BoundImagePreviewsPaneActionCreators} />
-        <ImageGrid />
+        <ImageGrid
+          {...this.props.imageGrid} />
       </View>
     );
   }
@@ -46,7 +49,8 @@ const mapStateToProps = (state) => {
   return {
     app: state.app,
     profile: state.profile,
-    imagePreviews: state.imagePreviews
+    imagePreviews: state.imagePreviews,
+    imageGrid: state.imageGrid
   }
 }
 
@@ -54,6 +58,9 @@ const mapDispatchToProps = (dispatch) => {
   const boundActionCreators = Object.assign({}, {
     BoundImagePreviewsPaneActionCreators: bindActionCreators({
       ...ImagePreviewsPaneActionCreators
+    }, dispatch),
+    BoundImageGridActionCreators: bindActionCreators({
+      ...ImageGridActionCreators
     }, dispatch),
     BoundUserProfileActionCreators: bindActionCreators({
       ...UserProfileActionCreators

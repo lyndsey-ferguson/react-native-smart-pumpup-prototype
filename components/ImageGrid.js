@@ -11,23 +11,36 @@ import React, {
 } from 'react';
 import {
   Dimensions,
+  Image,
   StyleSheet,
   View
 } from 'react-native';
 import Grid from 'react-native-grid-component';
+import deepEqual from 'deep-equal';
 
 export default class ImageGrid extends React.Component {
-  renderImageGridItem(data, i) {
+  renderImageGridItem(imageItem, i) {
+    const { imagesList } = this.props;
+
+    const imageUri = imagesList.length > 0 ? imagesList[0].uri : 'https://regmedia.co.uk/2017/06/02/fireball.jpg';
+
     return (
-      <View style={[{backgroundColor: data}, styles.item]} key={i}/>
+      <Image style={[styles.item, { backgroundColor: 'white' }]}
+       resizeMode='contain'
+       source={{uri: imageItem.uri}}
+       defaultSource={require('../res/no_avatar.png')}
+       key={imageItem.key}/>
     );
   }
   render() {
+    const { imagesList } = this.props;
+
     return (
       <Grid style={styles.list}
       renderItem={this.renderImageGridItem.bind(this)}
-      data={['black', 'white', 'red', 'green', 'yellow', 'pink', 'cyan', 'brown', 'purple']}
+      data={imagesList}
       itemsPerRow={3}
+      itemHasChanged={ (d1, d2) => d1 !== d2 && !deepEqual(d1, d2)}
       />
     )
   }

@@ -9,6 +9,7 @@ import { combineReducers } from 'redux';
 
 import UserProfileReducer from './UserProfileReducer';
 import ImagePreviewsPaneReducer from './ImagePreviewsPaneReducer';
+import ImageGridReducer from './ImageGridReducer';
 
 const initialState = {
 
@@ -25,5 +26,6 @@ const AppReducer = (state = initialState, action) => {
 export default combineReducers({
   app: AppReducer,
   profile: UserProfileReducer,
-  imagePreviews: ImagePreviewsPaneReducer
+  imagePreviews: ImagePreviewsPaneReducer,
+  imageGrid: ImageGridReducer
 });
