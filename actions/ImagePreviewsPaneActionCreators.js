@@ -38,10 +38,12 @@ export function LoadImagePreviews() {
     fetch('http://api.pumpup.com/1/functions/feed/profile/load-batch', fetchData)
       .then(function(response) {
         if(response.ok) {
+          // take the response, and promise the JSON data to the next `then`
           return response.json()
         }
         throw new Error(`Network Error ${response.status}): ${response.statusText}`)
       }).then(function(json) {
+        // Get just an array of uri,key objects for each thumbnail
         const imagesList = json.result.posts.map(function({thumbnail}, index) {
           return { uri: thumbnail, key: `image_preview_${index}`}
         })

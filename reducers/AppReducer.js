@@ -12,7 +12,7 @@ import ImagePreviewsPaneReducer from './ImagePreviewsPaneReducer'
 import ImageGridReducer from './ImageGridReducer'
 
 const initialState = {
-
+  // empty state for future use
 }
 
 

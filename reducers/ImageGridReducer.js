@@ -2,6 +2,9 @@
  ImageGridReducer.js
  Smart Components
 
+ Handle all actions related to the Image Grid. Currently only responds to
+ the update image list action when the images were downloaded from the web.
+ 
  React Native app created by Lyndsey on 10/7/17.
  Copyright © 2017 Lyndsey Ferguson Apps. All rights reserved.
 */

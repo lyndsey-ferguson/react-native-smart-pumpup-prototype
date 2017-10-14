@@ -2,6 +2,10 @@
  ImagePreviewsPaneReducer.js
  Smart Components
 
+ Handle actions related to the image previews pane. Currently responds to the
+ action sent when the images were downloaded from the web, and the action
+ triggered when the user selects a different image using the dots.
+ 
  React Native app created by Lyndsey on 10/7/17.
  Copyright © 2017 Lyndsey Ferguson Apps. All rights reserved.
 */

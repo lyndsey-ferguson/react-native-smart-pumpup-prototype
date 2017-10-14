@@ -48,6 +48,7 @@ export function LoadUserProfile() {
     fetch('http://api.pumpup.com/1/classes/User/318381', fetchData)
       .then(function(response) {
         if(response.ok) {
+          // take the response, and promise the JSON data to the next `then`
           return response.json()
         }
         throw new Error(`Network Error ${response.status}): ${response.statusText}`)

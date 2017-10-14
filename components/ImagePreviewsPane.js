@@ -24,7 +24,9 @@ const imagePreviewsPaneWidth = windowWidth - 40
 export default class ImagePreviewsPane extends React.Component {
 
 
-
+  /**
+    Render the image in the horizontal FlatList.
+  */
   renderImagePreview({item}) {
     return (
       <Image style={styles.imagePreview}
@@ -35,7 +37,10 @@ export default class ImagePreviewsPane extends React.Component {
   }
 
 
-
+  /**
+    Update the state so that when the user finishes scrolling, the correct dot
+    is updated.
+  */
   handleScrollEnd(event) {
     const horizontalOffset = event.nativeEvent.contentOffset.x
     const imagePreviewIndex = horizontalOffset ? Math.round(horizontalOffset / imagePreviewsPaneWidth) : 0
@@ -45,7 +50,9 @@ export default class ImagePreviewsPane extends React.Component {
   }
 
 
-
+  /**
+    Used by React Native FlatList to calculate where to scroll to in `scrollToIndex`
+  */
   getItemLayout(data, index) {
     return {
       length: imagePreviewsPaneWidth,
@@ -62,6 +69,8 @@ export default class ImagePreviewsPane extends React.Component {
     return (
       <View style={styles.previewPane}>
         <FlatList ref={component => {
+          // if the conponent has been created, and we *should* scroll, scroll
+          // to the given image when we can.
           this.flatList = component
           if (component && shouldScroll) {
             component.scrollToIndex({index: currentImageIndex})
@@ -82,6 +91,8 @@ export default class ImagePreviewsPane extends React.Component {
           style={{ flexDirection: 'row', justifyContent: 'center' }}
         >
           {
+            // create dot views for each image. Highlight the one that
+            // corresponds to the currently visible image in the list.
             imagesList.map((_, imageIndex) => {
               return (
                 <Bounceable key={imageIndex}
@@ -101,6 +112,8 @@ export default class ImagePreviewsPane extends React.Component {
   }
 }
 
+
+
 ImagePreviewsPane.propTypes = {
   imagesList: PropTypes.arrayOf(PropTypes.shape({
     uri: PropTypes.string.isRequired,
@@ -109,6 +122,8 @@ ImagePreviewsPane.propTypes = {
   currentImageIndex: PropTypes.number.isRequired,
   ChangeCurrent: PropTypes.func.isRequired
 }
+
+
 
 const styles = StyleSheet.create({
   previewPane: {

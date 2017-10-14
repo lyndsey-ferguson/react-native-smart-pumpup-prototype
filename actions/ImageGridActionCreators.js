@@ -14,6 +14,8 @@ const _LoadGridImages = (imagesList) => ({
   imagesList
 })
 
+
+
 export function LoadGridImages() {
   return dispatch => {
     let headers = new Headers()
@@ -31,10 +33,12 @@ export function LoadGridImages() {
     fetch('http://api.pumpup.com/1/functions/feed/popular/load-batch', fetchData)
       .then(function(response) {
         if(response.ok) {
+          // take the response, and promise the JSON data to the next `then`
           return response.json()
         }
         throw new Error(`Network Error ${response.status}): ${response.statusText}`)
       }).then(function(json) {
+        // Get just an array of uri,key objects for each thumbnail
         const imagesList = json.result.posts.map(function({thumbnail}, index) {
           return { uri: thumbnail, key: `image_grid_${index}`}
         }) || []

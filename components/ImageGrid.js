@@ -22,6 +22,9 @@ export default class ImageGrid extends React.Component {
 
 
 
+  /**
+    Render the image in the Grid.
+  */
   renderImageGridItem(imageItem, i) {
     return (
       <Image style={styles.item}

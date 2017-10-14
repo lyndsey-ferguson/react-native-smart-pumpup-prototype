@@ -25,7 +25,10 @@ import {
 export default class UserProfilePane extends React.Component {
 
 
-
+  /**
+    Used by the ReadMore component to show a control when the component is
+    minimized.
+  */
   renderTruncatedFooter(handlePress) {
     return (
       <Text onPress={handlePress} style={styles.readMoreLess}>
@@ -36,6 +39,10 @@ export default class UserProfilePane extends React.Component {
 
 
 
+  /**
+    Used by the ReadMore component to show a control when the component is
+    maximized.
+  */
   renderRevealedFooter(handlePress) {
     return (
       <Text onPress={handlePress} style={styles.readMoreLess}>
@@ -63,10 +70,15 @@ export default class UserProfilePane extends React.Component {
             <Hyperlink  linkDefault={true}
               linkText={ url => {
                 if (url.startsWith(TWITTER_URL_PREFIX)) {
+                  /**
+                    linkText replaces the link, i.e. https://twitter.com/something
+                    with the mention text. Either #hashtag or @user.
+                  */
                   const entireMention = url.replace(TWITTER_URL_PREFIX, '')
 
                   return (entireMention.startsWith('%23') ? '#' : '@') +  entireMention.replace('%23', '')
                 }
+                // otherwise just return the URL if it is not a twitter search.
                 return url
               }
               }

@@ -2,6 +2,10 @@
  UserProfileReducer.js
  Smart Components
 
+ Handles actions sent that correspond to the User's profile pane. Currently, the
+ only action is the one sent when the user's profile was successfully downloaded
+ from the web.
+
  React Native app created by Lyndsey on 10/7/17.
  Copyright © 2017 Lyndsey Ferguson Apps. All rights reserved.
 */

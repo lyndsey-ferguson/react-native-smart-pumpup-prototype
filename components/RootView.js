@@ -27,6 +27,8 @@ class RootView extends React.Component {
 
 
   componentWillMount() {
+    // begin downloading the parts. Done in bits so we can get the faster
+    // items first.
     this.props.BoundUserProfileActionCreators.LoadUserProfile()
     this.props.BoundImagePreviewsPaneActionCreators.LoadImagePreviews()
     this.props.BoundImageGridActionCreators.LoadGridImages()
@@ -80,6 +82,8 @@ const mapStateToProps = (state) => {
 
 
 const mapDispatchToProps = (dispatch) => {
+  // A handy way to send the function props so we can pass them to the
+  // components quickly using the spread operator.
   const boundActionCreators = Object.assign({}, {
     BoundImagePreviewsPaneActionCreators: bindActionCreators({
       ...ImagePreviewsPaneActionCreators
