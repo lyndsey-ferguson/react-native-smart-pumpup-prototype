@@ -1,5 +1,4 @@
 import {
-  _GetImagesFromJsonResponse,
   _CreateLoadImagePreviewsFetchData
 } from '../ImagePreviewsPaneActionCreators'
 import expect from 'expect'

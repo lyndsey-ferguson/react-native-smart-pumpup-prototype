@@ -1,5 +1,4 @@
 import {
-  _GetImagesFromJsonResponse,
   _CreateLoadGridImagesFetchData
 } from '../ImageGridActionCreators'
 import expect from 'expect'
