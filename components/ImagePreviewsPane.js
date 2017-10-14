@@ -24,7 +24,10 @@ const imagePreviewsPaneWidth = windowWidth - 40;
 export default class ImagePreviewsPane extends React.Component {
   renderImagePreview({item}) {
     return (
-      <Image style={{width: imagePreviewsPaneWidth, height: imagePreviewsPaneWidth}} source={item.source} key={item.key}/>
+      <Image style={styles.imagePreview}
+             resizeMode='contain'
+             source={{uri: item.uri}}
+             key={item.key}/>
     );
   }
   handleScrollEnd(event) {
@@ -43,15 +46,19 @@ export default class ImagePreviewsPane extends React.Component {
   }
 
   render() {
-    const images = [
-    ];
-    const { currentImageIndex } = this.props;
-    console.log('#### currentImageIndex is ' + currentImageIndex);
+    const { currentImageIndex, imageList } = this.props;
+    const shouldScroll = currentImageIndex < imageList.length && currentImageIndex > 0;
     return (
       <View>
-        <FlatList ref={component => {this.flatList = component; component && currentImageIndex < images.length && component.scrollToIndex({index: currentImageIndex});}}
+        <FlatList ref={component => {
+                    this.flatList = component;
+                    if (component && shouldScroll) {
+                      component.scrollToIndex({index: currentImageIndex});
+                    }}
+                  }
                   onMomentumScrollEnd={(event) => this.handleScrollEnd.call(this, event)}
-                  data={images}
+                  extraData={imageList}
+                  data={imageList}
                   style={styles.imagePreviews}
                   horizontal={true}
                   decelerationRate={0}
@@ -63,7 +70,7 @@ export default class ImagePreviewsPane extends React.Component {
           style={{ flexDirection: 'row', justifyContent: 'center' }} // this will layout our dots horizontally (row) instead of vertically (column)
           >
           {
-            images.map((_, imageIndex) => {
+            imageList.map((_, imageIndex) => {
               return (
                 <Bounceable key={imageIndex}
                             onPress={() => this.props.ChangeCurrent(imageIndex)}
@@ -88,6 +95,10 @@ const styles = StyleSheet.create({
     height: imagePreviewsPaneWidth,
     marginTop: 20,
     marginLeft: 20
+  },
+  imagePreview: {
+    width: imagePreviewsPaneWidth,
+    height: imagePreviewsPaneWidth,
   },
   imagePreviewDot: {
     height: 10,

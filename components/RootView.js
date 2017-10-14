@@ -26,6 +26,7 @@ import * as UserProfileActionCreators from '../actions/UserProfileActionCreators
 class RootView extends React.Component {
   componentWillMount() {
     this.props.BoundUserProfileActionCreators.LoadUserProfile();
+    this.props.BoundImagePreviewsPaneActionCreators.LoadImagePreviews();
   }
   render() {
     return (

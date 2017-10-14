@@ -13,7 +13,7 @@ import {
 
 const initialState = {
   isLoading: true,
-  imageList: undefined,
+  imageList: [],
   currentImageIndex: 0
 };
 
@@ -22,6 +22,11 @@ export default ImagePreviewsPaneReducer = (state = initialState, action) => {
     case ACTION_IMAGES_CHANGE_CURRENT: {
       return Object.assign({}, state, {
         currentImageIndex: action.currentImageIndex
+      });
+    }
+    case ACTION_IMAGES_CHANGE_LIST: {
+      return Object.assign({}, state, {
+        imageList: action.imageList
       });
     }
     default: {
