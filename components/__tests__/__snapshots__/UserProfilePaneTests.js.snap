@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly with an avatar 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#f00",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "borderBottomWidth": 1,
+        "borderColor": "#444",
+        "flexDirection": "row",
+        "paddingBottom": 5,
+        "paddingTop": 5,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={
+        Object {
+          "uri": "https://www.example.com/avatar.png",
+        }
+      }
+      style={
+        Object {
+          "height": 80,
+          "width": 80,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "marginLeft": 5,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 20,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Reg Park
+      </Text>
+      <View
+        linkDefault={true}
+        linkText={[Function]}
+        onPress={[Function]}
+        style={undefined}
+      >
+        <View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            numberOfLines={0}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+            >
+              Likes to lift weights and do yoga #YogaBear
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`renders correctly without an avatar 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#f00",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "backgroundColor": "#fff",
+        "borderBottomWidth": 1,
+        "borderColor": "#444",
+        "flexDirection": "row",
+        "paddingBottom": 5,
+        "paddingTop": 5,
+      }
+    }
+  >
+    <Image
+      resizeMode="contain"
+      source={1}
+      style={
+        Object {
+          "height": 80,
+          "width": 80,
+        }
+      }
+    />
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "marginLeft": 5,
+        }
+      }
+    >
+      <Text
+        accessible={true}
+        allowFontScaling={true}
+        disabled={false}
+        ellipsizeMode="tail"
+        style={
+          Object {
+            "fontSize": 20,
+            "fontWeight": "bold",
+          }
+        }
+      >
+        Reg Park
+      </Text>
+      <View
+        linkDefault={true}
+        linkText={[Function]}
+        onPress={[Function]}
+        style={undefined}
+      >
+        <View>
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            numberOfLines={0}
+          >
+            <Text
+              accessible={true}
+              allowFontScaling={true}
+              disabled={false}
+              ellipsizeMode="tail"
+            >
+              Likes to lift weights and do yoga #YogaBear
+            </Text>
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
