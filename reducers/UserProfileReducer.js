@@ -23,7 +23,7 @@ const initialState = {
 
 
 
-export default function UserProfileReducer(state = initialState, action) {
+export default function UserProfileReducer(state = initialState, action = {}) {
   switch(action.type) {
   case ACTION_LOAD_USER_PROFILE: {
     return Object.assign({}, state, {

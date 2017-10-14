@@ -102,7 +102,7 @@ export default class UserProfilePane extends React.Component {
 
 
 UserProfilePane.propTypes = {
-  avatarUri: PropTypes.string.isRequired,
+  avatarUri: PropTypes.string,
   name: PropTypes.string.isRequired,
   bio: PropTypes.string.isRequired
 }

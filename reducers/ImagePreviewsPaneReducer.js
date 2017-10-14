@@ -5,7 +5,7 @@
  Handle actions related to the image previews pane. Currently responds to the
  action sent when the images were downloaded from the web, and the action
  triggered when the user selects a different image using the dots.
- 
+
  React Native app created by Lyndsey on 10/7/17.
  Copyright © 2017 Lyndsey Ferguson Apps. All rights reserved.
 */
@@ -23,9 +23,12 @@ const initialState = {
 
 
 
-export default function ImagePreviewsPaneReducer(state = initialState, action) {
+export default function ImagePreviewsPaneReducer(state = initialState, action = {}) {
   switch(action.type) {
   case ACTION_IMAGES_CHANGE_CURRENT: {
+    if (action.currentImageIndex < 0 || action.currentImageIndex >= state.imagesList.length) {
+      return state
+    }
     return Object.assign({}, state, {
       currentImageIndex: action.currentImageIndex
     })
