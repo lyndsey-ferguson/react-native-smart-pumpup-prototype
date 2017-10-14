@@ -6,73 +6,75 @@
  Copyright © 2017 Lyndsey Ferguson Apps. All rights reserved.
 */
 
-import React, {
-  Component
-} from 'react';
+import React from 'react'
 import {
-  Dimensions,
   Image,
   StyleSheet,
   Text,
   View
-} from 'react-native';
-import Bounceable from 'react-native-bounceable';
-import Hyperlink from 'react-native-hyperlink';
-import ReadMore from '@expo/react-native-read-more-text';
-
+} from 'react-native'
+import Hyperlink from 'react-native-hyperlink'
+import ReadMore from '@expo/react-native-read-more-text'
+import PropTypes from 'prop-types'
 import {
   TWITTER_URL_PREFIX
-} from '../Constants';
+} from '../Constants'
 
-const { width: windowWidth } = Dimensions.get('window');
-const imagePreviewPaneWidth = windowWidth - 40;
+
 
 export default class UserProfilePane extends React.Component {
-    _renderTruncatedFooter = (handlePress) => {
+
+
+
+  renderTruncatedFooter(handlePress) {
     return (
       <Text onPress={handlePress} style={styles.readMoreLess}>
         Read more
       </Text>
-    );
+    )
   }
 
-  _renderRevealedFooter = (handlePress) => {
+
+
+  renderRevealedFooter(handlePress) {
     return (
       <Text onPress={handlePress} style={styles.readMoreLess}>
         Show less
       </Text>
-    );
+    )
   }
+
+
+
   render() {
-    const { isLoading, avatarUri, name, bio } = this.props;
+    const { avatarUri, name, bio } = this.props
     const imageSource = avatarUri ? {
-                                  uri: avatarUri
-                                } :
-                                require('../res/no_avatar.png');
+      uri: avatarUri
+    } : require('../res/no_avatar.png')
 
     return (
       <View style={{backgroundColor: '#f00'}}>
         <View style={styles.container}>
           <Image style={styles.avatar}
-                 resizeMode={'contain'}
-                 source={imageSource} />
+            resizeMode={'contain'}
+            source={imageSource} />
           <View style={styles.infoPane}>
             <Text style={styles.name}>{name}</Text>
             <Hyperlink  linkDefault={true}
-                        linkText={ url => {
-                  if (url.startsWith(TWITTER_URL_PREFIX)) {
-                      const entireMention = url.replace(TWITTER_URL_PREFIX, '');
+              linkText={ url => {
+                if (url.startsWith(TWITTER_URL_PREFIX)) {
+                  const entireMention = url.replace(TWITTER_URL_PREFIX, '')
 
-                      return (entireMention.startsWith('%23') ? '#' : '@') +  entireMention.replace('%23', '');
-                  }
-                  return url
+                  return (entireMention.startsWith('%23') ? '#' : '@') +  entireMention.replace('%23', '')
                 }
+                return url
+              }
               }
             >
               <ReadMore numberOfLines={3}
-                        renderTruncatedFooter={this._renderTruncatedFooter}
-                        renderRevealedFooter={this._renderRevealedFooter}
-                        >
+                renderTruncatedFooter={this.renderTruncatedFooter}
+                renderRevealedFooter={this.renderRevealedFooter}
+              >
                 <Text>
                   {bio}
                 </Text>
@@ -81,9 +83,19 @@ export default class UserProfilePane extends React.Component {
           </View>
         </View>
       </View>
-    );
+    )
   }
 }
+
+
+
+UserProfilePane.propTypes = {
+  avatarUri: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  bio: PropTypes.string.isRequired
+}
+
+
 
 const styles = StyleSheet.create({
   container: {
@@ -110,4 +122,4 @@ const styles = StyleSheet.create({
   readMoreLess: {
     color: 'blue'
   }
-});
+})

@@ -1,13 +1,23 @@
-import React from 'react';
-import ImageGrid from '../ImageGrid';
-import renderer from 'react-test-renderer';
+/**
+ ImageGridTests.js
+ Smart Components
+
+ React Native app created by Lyndsey on 10/7/17.
+ Copyright © 2017 Lyndsey Ferguson Apps. All rights reserved.
+*/
+import React from 'react'
+import ImageGrid from '../ImageGrid'
+import renderer from 'react-test-renderer'
+import expect from 'expect'
 
 it('renders correctly without any images', () => {
   const tree = renderer.create(
     <ImageGrid imagesList={[]}/>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
-});
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})
+
+
 
 it('renders correctly with 6 images', () => {
   const tree = renderer.create(
@@ -19,6 +29,6 @@ it('renders correctly with 6 images', () => {
       { uri: 'https://www.example.com/image5.png', key: '5'},
       { uri: 'https://www.example.com/image6.png', key: '6'},
     ]}/>
-  ).toJSON();
-  expect(tree).toMatchSnapshot();
-});
+  ).toJSON()
+  expect(tree).toMatchSnapshot()
+})

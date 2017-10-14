@@ -6,6 +6,6 @@
  Copyright © 2017 Lyndsey Ferguson Apps. All rights reserved.
 */
 
-const prefix = 'Action.UserProfile';
+const prefix = 'Action.UserProfile'
 
-export const ACTION_LOAD_USER_PROFILE = `${prefix}.Load`;
+export const ACTION_LOAD_USER_PROFILE = `${prefix}.Load`

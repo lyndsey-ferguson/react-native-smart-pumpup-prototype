@@ -1,7 +1,13 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly with 6 images and a currentImageIndex of 0 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "backgroundColor": "#d0c0f0",
+    }
+  }
+>
   <RCTScrollView
     data={
       Array [
@@ -489,7 +495,13 @@ exports[`renders correctly with 6 images and a currentImageIndex of 0 1`] = `
 `;
 
 exports[`renders correctly without any images and a currentImageIndex of 0 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "backgroundColor": "#d0c0f0",
+    }
+  }
+>
   <RCTScrollView
     data={Array []}
     decelerationRate={0}
@@ -541,7 +553,13 @@ exports[`renders correctly without any images and a currentImageIndex of 0 1`] =
 `;
 
 exports[`renders correctly without any images and an invalid currentImageIndex 1`] = `
-<View>
+<View
+  style={
+    Object {
+      "backgroundColor": "#d0c0f0",
+    }
+  }
+>
   <RCTScrollView
     data={Array []}
     decelerationRate={0}

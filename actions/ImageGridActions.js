@@ -6,6 +6,6 @@
  Copyright © 2017 Lyndsey Ferguson Apps. All rights reserved.
 */
 
-const prefix = 'Action.ImageGrid';
+const prefix = 'Action.ImageGrid'
 
-export const ACTION_LOAD_GRID_IMAGES = `${prefix}.Load`;
+export const ACTION_LOAD_GRID_IMAGES = `${prefix}.Load`

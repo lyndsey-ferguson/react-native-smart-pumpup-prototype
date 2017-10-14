@@ -7,24 +7,25 @@
 */
 import {
   ACTION_LOAD_GRID_IMAGES
-} from '../actions/ImageGridActions';
+} from '../actions/ImageGridActions'
 
 const initialState = {
-  isLoading: true,
   imagesList: []
-};
+}
 
-export default ImageGridReducer = (state = initialState, action) => {
+
+
+export default function ImageGridReducer(state = initialState, action) {
   switch(action.type) {
-    case ACTION_LOAD_GRID_IMAGES: {
-      console.assert(action.imagesList != undefined, {"message":"action.imagesList is undefined"});
+  case ACTION_LOAD_GRID_IMAGES: {
+    console.assert(action.imagesList !== undefined, {'message':'action.imagesList is undefined'})
 
-      return Object.assign({}, state, {
-        imagesList: action.imagesList
-      });
-    }
-    default: {
-      return state;
-    }
+    return Object.assign({}, state, {
+      imagesList: action.imagesList
+    })
+  }
+  default: {
+    return state
+  }
   }
 }

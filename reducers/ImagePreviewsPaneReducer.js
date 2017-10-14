@@ -8,29 +8,31 @@
 import {
   ACTION_IMAGES_CHANGE_LIST,
   ACTION_IMAGES_CHANGE_CURRENT
-} from '../actions/ImagePreviewsPaneActions';
+} from '../actions/ImagePreviewsPaneActions'
+
 
 
 const initialState = {
-  isLoading: true,
   imagesList: [],
   currentImageIndex: 0
-};
+}
 
-export default ImagePreviewsPaneReducer = (state = initialState, action) => {
+
+
+export default function ImagePreviewsPaneReducer(state = initialState, action) {
   switch(action.type) {
-    case ACTION_IMAGES_CHANGE_CURRENT: {
-      return Object.assign({}, state, {
-        currentImageIndex: action.currentImageIndex
-      });
-    }
-    case ACTION_IMAGES_CHANGE_LIST: {
-      return Object.assign({}, state, {
-        imagesList: action.imagesList
-      });
-    }
-    default: {
-      return state;
-    }
+  case ACTION_IMAGES_CHANGE_CURRENT: {
+    return Object.assign({}, state, {
+      currentImageIndex: action.currentImageIndex
+    })
+  }
+  case ACTION_IMAGES_CHANGE_LIST: {
+    return Object.assign({}, state, {
+      imagesList: action.imagesList
+    })
+  }
+  default: {
+    return state
+  }
   }
 }

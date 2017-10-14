@@ -6,7 +6,7 @@
  Copyright © 2017 Lyndsey Ferguson Apps. All rights reserved.
 */
 
-const prefix = 'Action.ImagePreviewPane';
+const prefix = 'Action.ImagePreviewPane'
 
-export const ACTION_IMAGES_CHANGE_LIST    = `${prefix}.ChangeList`;
-export const ACTION_IMAGES_CHANGE_CURRENT = `${prefix}.ChangeCurrent`;
+export const ACTION_IMAGES_CHANGE_LIST    = `${prefix}.ChangeList`
+export const ACTION_IMAGES_CHANGE_CURRENT = `${prefix}.ChangeCurrent`
