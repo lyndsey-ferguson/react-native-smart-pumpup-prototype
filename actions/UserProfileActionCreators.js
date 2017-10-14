@@ -21,7 +21,7 @@ const _LoadProfile = (avatarUri, name, bio) => ({
 
 
 
-function TwitterfyBio(bio) {
+export function TwitterfyBio(bio) {
   function TwitterfyMention(match, firstWordBreak, mentionType, mention, lastWordBreak) {
     return firstWordBreak + TWITTER_URL_PREFIX + (mentionType === '#' ? '%23' : '') + mention + lastWordBreak
   }
@@ -31,21 +31,28 @@ function TwitterfyBio(bio) {
 
 
 
+// Exported for testing.
+export function _CreateLoadUserProfileFetchData() {
+  let headers = new Headers()
+  headers.append('X-Version', '5.0.5')
+  // eslint-disable-next-line max-len
+  headers.append('X-Session-Token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOjI3MDc3OTgsImV4cCI6MTUzOTUzNTI1OTM2OH0.UK2qP1yk9QLk_Bkx1Ly0RPaitRYtec8ojZhzYRc0D-g')
+  headers.append('Content-Type', 'application/json')
+
+  return {
+    method: 'POST',
+    headers: headers,
+    // eslint-disable-next-line max-len
+    body: '{ "_method": "GET", "_version": "5.0.5", "_SessionToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOjI3MDc3OTgsImV4cCI6MTUzOTUzNTI1OTM2OH0.UK2qP1yk9QLk_Bkx1Ly0RPaitRYtec8ojZhzYRc0D-g" }'
+  }
+}
+
+
+
 export function LoadUserProfile() {
   return dispatch => {
-    let headers = new Headers()
-    headers.append('X-Version', '5.0.5')
-    // eslint-disable-next-line max-len
-    headers.append('X-Session-Token', 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOjI3MDc3OTgsImV4cCI6MTUzOTUzNTI1OTM2OH0.UK2qP1yk9QLk_Bkx1Ly0RPaitRYtec8ojZhzYRc0D-g')
-    headers.append('Content-Type', 'application/json')
 
-    let fetchData = {
-      method: 'POST',
-      headers: headers,
-      // eslint-disable-next-line max-len
-      body: '{ "_method": "GET", "_version": "5.0.5", "_SessionToken": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOjI3MDc3OTgsImV4cCI6MTUzOTUzNTI1OTM2OH0.UK2qP1yk9QLk_Bkx1Ly0RPaitRYtec8ojZhzYRc0D-g" }'
-    }
-    fetch('http://api.pumpup.com/1/classes/User/318381', fetchData)
+    fetch('http://api.pumpup.com/1/classes/User/318381', _CreateLoadUserProfileFetchData())
       .then(function(response) {
         if(response.ok) {
           // take the response, and promise the JSON data to the next `then`
