@@ -25,6 +25,7 @@
     "react-native": "^0.48.4",
     "react-native-bounceable": "^0.2.1",
     "react-native-grid-component": "^1.0.7",
+    "react-native-hyperlink": "^0.0.11",
     "react-native-vector-icons": "^4.4.2",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",

@@ -17,6 +17,10 @@ import {
   View
 } from 'react-native';
 import Bounceable from 'react-native-bounceable';
+import Hyperlink from 'react-native-hyperlink'
+import {
+  TWITTER_URL_PREFIX
+} from '../Constants';
 
 const { width: windowWidth } = Dimensions.get('window');
 const imagePreviewPaneWidth = windowWidth - 40;
@@ -37,10 +41,22 @@ export default class UserProfilePane extends React.Component {
                  source={imageSource} />
           <View style={styles.infoPane}>
             <Text style={styles.name}>{name}</Text>
-            <Text numberOfLines={3}
-                  ellipsizeMode={'tail'} >
-              {bio}
-            </Text>
+            <Hyperlink  linkDefault={true}
+                        linkText={ url => {
+                  if (url.startsWith(TWITTER_URL_PREFIX)) {
+                      const entireMention = url.replace(TWITTER_URL_PREFIX, '');
+
+                      return (entireMention.startsWith('%23') ? '#' : '@') +  entireMention.replace('%23', '');
+                  }
+                  return url
+                }
+              }
+            >
+              <Text numberOfLines={3}
+                    ellipsizeMode={'tail'} >
+                {bio}
+              </Text>
+            </Hyperlink>
           </View>
         </View>
       </View>

@@ -8,6 +8,9 @@
 import {
   ACTION_LOAD_USER_PROFILE
 } from './UserProfileActions';
+import {
+  TWITTER_URL_PREFIX
+} from '../Constants';
 
 const _LoadProfile = (avatarUri, name, bio) => ({
   type: ACTION_LOAD_USER_PROFILE,
@@ -15,6 +18,14 @@ const _LoadProfile = (avatarUri, name, bio) => ({
   name,
   bio
 });
+
+function TwitterfyBio(bio) {
+  function TwitterfyMention(match, firstWordBreak, mentionType, mention, lastWordBreak) {
+    return firstWordBreak + TWITTER_URL_PREFIX + (mentionType == '#' ? '%23' : '') + mention + lastWordBreak;
+  }
+
+  return bio.replace(/(^|\s)(#|@)([^\s$]+)(\s|$)/g, TwitterfyMention);
+}
 
 export function LoadUserProfile() {
   return dispatch => {
@@ -35,7 +46,7 @@ export function LoadUserProfile() {
       }
       throw new Error(`Network Error ${response.status}): ${response.statusText}`);
     }).then(function(json) {
-      dispatch(_LoadProfile(json.profileThumbnail, json.name, json.bio));
+      dispatch(_LoadProfile(json.profileThumbnail, json.name, TwitterfyBio(json.bio)));
     });
   }
 }
