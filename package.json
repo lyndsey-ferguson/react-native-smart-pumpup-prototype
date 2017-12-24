@@ -21,6 +21,7 @@
   },
   "dependencies": {
     "@expo/react-native-read-more-text": "^1.1.0",
+    "auth0-js": "8.0.0",
     "deep-equal": "^1.0.1",
     "eslint": "^4.9.0",
     "expect": "^21.2.1",
